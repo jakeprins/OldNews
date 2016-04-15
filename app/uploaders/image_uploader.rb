@@ -1,19 +1,16 @@
 # encoding: utf-8
-
 class ImageUploader < CarrierWave::Uploader::Base
-   include Cloudinary::CarrierWave
-   
-   version :thumbnail do
+  include Cloudinary::CarrierWave
+    version :thumbnail do
     eager
     resize_to_fit(300, 300)
     cloudinary_transformation :quality => 80
   end
 
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
 
-  # Choose what kind of storage to use for this uploader:
+
+
+
   storage :file
   # storage :fog
 
@@ -22,6 +19,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
+end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
@@ -54,5 +52,3 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
-end
