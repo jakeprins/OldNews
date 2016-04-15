@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -27,7 +28,15 @@
     <%= f.label :text %><br>
     <%= f.text_field :text %>
   </div>
+
+  <p>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </p>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
